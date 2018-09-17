@@ -15,6 +15,9 @@ rl.question("how are you today? ", (_answer) => {
 	console.log("Thank you for your valuable feedback:", _answer);
 	rl.close();
 });*/
+setTimeout(() => {
+ console.log("Waited 1 second");
+}, 1000);
 
 const Md5 = require('@nogsantos/hash').Md5;
 const md5 = new Md5();
@@ -31,11 +34,12 @@ app.use(bodyParser.json({
 	type: "application/json"
 }));
 app.use(cors());
+console.log(__dirname);
 app.use('/', express.static(__dirname));
+app.use('/auto', express.static(__dirname+"/auto.html"));
 
 app.get('/test', function (req, res) {
   res.send("test");
 });
-console.log("hejhej");
 // port 3000
 app.listen(3000);
